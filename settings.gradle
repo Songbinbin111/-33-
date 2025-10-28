@@ -1,1 +1,11 @@
-rootProject.name = 'spring-boot-web3j'
+//rootProject.name = 'spring-boot-web3j'
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url "https://hyperledger.jfrog.io/artifactory/besu-maven/" } // ✅ Web3j 插件依赖的库
+    }
+}
+
+rootProject.name = "spring-boot-web3j"

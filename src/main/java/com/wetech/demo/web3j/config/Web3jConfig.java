@@ -1,6 +1,7 @@
 package com.wetech.demo.web3j.config;
 
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.StaticGasProvider;
 
 import java.math.BigInteger;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Configuration
@@ -28,12 +30,22 @@ public class Web3jConfig {
     @Value("${web3j.gas-limit:6721975}")
     private String gasLimit;
 
-    @Bean
-    public Web3j web3j() {
-        log.info("Connecting to Ethereum client: {}", clientAddress);
-        return Web3j.build(new HttpService(clientAddress));
-    }
+//    @Bean
+//    public Web3j web3j() {
+//        log.info("Connecting to Ethereum client: {}", clientAddress);
+//        return Web3j.build(new HttpService(clientAddress));
+//    }
+@Bean
+public Web3j web3j(@Value("${web3j.client-address}") String clientAddress) {
+    OkHttpClient httpClient = new OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .build();
 
+    System.out.println("✅ 正在连接以太坊节点: " + clientAddress);
+    return Web3j.build(new HttpService(clientAddress, httpClient, false));
+}
     @Bean
     public Credentials credentials() {
         return Credentials.create(privateKey);
