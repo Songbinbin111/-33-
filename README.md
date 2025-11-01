@@ -13,13 +13,13 @@
 <img width="415" height="201" alt="image" src="https://github.com/user-attachments/assets/2e7effba-cbd8-4639-9e2d-6299d8f8011a" />
 
 1、调用合约所有实现接口的截图以及文字说明（mint、transfer、balanceOf、approve、transferFrom）
-1)进入合约调试页面
+进入合约调试页面
 在前端首页顶部导航栏，点击Debug Contracts；
 
 <img width="415" height="209" alt="image" src="https://github.com/user-attachments/assets/d80c28d1-3607-4ad2-82ec-0c7f0e9b5b37" />
 
 加载成功后会显示合约的所有接口（上图）。
-2）1. 调用「mint」接口
+调用「mint」接口
 操作步骤：
 在页面中找到 「Write」 标签页，下拉找到 「mint」 方法；
 填写参数：
@@ -38,14 +38,14 @@ amount： 1000000000000000000（代表 1 个 SHB 代币）；
 
 <img width="416" height="211" alt="image" src="https://github.com/user-attachments/assets/151f61fe-9a27-4731-8b71-a0bf2b35da5b" />
 
-3） 调用「balanceOf（查询余额）接口
+调用「balanceOf（查询余额）接口
 操作步骤：
 找到 「balanceOf」 方法，输入钱包地址；
 点击 「Read」，显示 SHB 代币余额，确认余额正确。
 
 <img width="415" height="194" alt="image" src="https://github.com/user-attachments/assets/30e18c52-9a5f-4dcf-bf5c-0dd1ebee1713" />
 
-4）调用「transfer」
+调用「transfer」
 操作步骤：
 找到 「transfer」 方法；
 填写参数：
@@ -61,7 +61,7 @@ amount：输入 500000000000000000（代表转账 0.5 个 SHB 代币）；
 
 <img width="414" height="193" alt="image" src="https://github.com/user-attachments/assets/9f4c3193-200d-4b39-8ebc-c338193a9168" />
 
-5）调用「approve」+「transferFrom」接口
+调用「approve」+「transferFrom」接口
 先创建一个account2账户，并且持币方为account1账户，allowance判断是否授权：
 
 <img width="416" height="224" alt="image" src="https://github.com/user-attachments/assets/ba5f6d4f-59bb-4452-9471-b7f90ce88584" />
